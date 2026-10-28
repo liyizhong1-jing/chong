@@ -1,0 +1,101 @@
+:root {
+  --bg: #050005;
+  --wine: #b4152f;
+  --rose: #ff6b8a;
+  --ink: rgba(255, 226, 232, 0.92);
+  --ink-dim: rgba(255, 200, 212, 0.45);
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--ink);
+  overflow: hidden;
+  font-family: "Noto Serif SC", "Songti SC", "Source Han Serif SC", Georgia, "Times New Roman", serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+#scene {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  cursor: grab;
+}
+#scene:active { cursor: grabbing; }
+
+.vignette {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(120% 90% at 50% 45%, transparent 40%, rgba(0, 0, 0, 0.55) 100%),
+    radial-gradient(60% 45% at 50% 107%, rgba(128, 12, 40, 0.18), transparent 70%);
+}
+
+.hud {
+  position: fixed;
+  left: 0;
+  right: 0;
+  padding: 0 clamp(18px, 4vw, 48px);
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hud-top { top: clamp(18px, 3.4vh, 40px); }
+
+.hud-top h1 {
+  margin: 0;
+  font-size: clamp(20px, 2.4vw, 32px);
+  font-weight: 500;
+  letter-spacing: 0.34em;
+  text-indent: 0.34em;
+  color: #ffe9ee;
+  text-shadow: 0 0 22px rgba(214, 30, 66, 0.55);
+}
+
+.hud-top .sub {
+  margin: 0.55em 0 0;
+  font-size: clamp(11px, 0.95vw, 13px);
+  letter-spacing: 0.16em;
+  color: var(--ink-dim);
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+.hud-bottom {
+  bottom: clamp(16px, 3vh, 34px);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35em;
+  align-items: flex-start;
+}
+
+.hint {
+  margin: 0;
+  font-size: clamp(11px, 0.9vw, 12.5px);
+  letter-spacing: 0.08em;
+  color: var(--ink-dim);
+  font-family: ui-monospace, "SFMono-Regular", Consolas, monospace;
+}
+
+.hint.dim { color: rgba(255, 170, 188, 0.3); }
+
+.fallback {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  gap: 1rem;
+  text-align: center;
+  padding: 2rem;
+}
+.fallback img { max-width: min(78vw, 620px); border-radius: 50%; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hud-top h1 { text-shadow: none; }
+}

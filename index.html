@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>酒红粒子花 · Wine Particle Rose</title>
+<meta name="description" content="28 片花瓣、28 万颗粒子组成的酒红色粒子花，WebGL 实时渲染。" />
+<meta property="og:title" content="酒红粒子花 · Wine Particle Rose" />
+<meta property="og:description" content="28 片花瓣、28 万颗粒子组成的酒红色粒子花，WebGL 实时渲染。" />
+<meta property="og:image" content="./cover.png" />
+<meta name="theme-color" content="#050005" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='42' fill='%23801026'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="./style.css" />
+<script type="importmap">
+{
+  "imports": {
+    "three": "./vendor/three.module.js"
+  }
+}
+</script>
+</head>
+<body>
+  <canvas id="scene" aria-label="酒红粒子花 3D 场景"></canvas>
+
+  <div class="vignette" aria-hidden="true"></div>
+
+  <header class="hud hud-top">
+    <h1>酒红粒子花</h1>
+    <p class="sub">Wine Particle Rose · 28 花瓣 · <span id="count">…</span> 粒子</p>
+  </header>
+
+  <div class="hud hud-bottom">
+    <p class="hint">拖拽旋转 · 滚轮缩放 · 空格 暂停/继续 · R 复位</p>
+    <p class="hint dim" id="status">正在生成粒子…</p>
+  </div>
+
+  <noscript>
+    <div class="fallback">
+      <p>这个页面需要 JavaScript 与 WebGL。</p>
+      <img src="./cover.png" alt="酒红粒子花渲染结果" />
+    </div>
+  </noscript>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
